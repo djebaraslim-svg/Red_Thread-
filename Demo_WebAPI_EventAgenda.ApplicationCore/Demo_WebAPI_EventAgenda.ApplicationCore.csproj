@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MailKit" Version="4.15.0" />
+    <PackageReference Include="MimeKit" Version="4.15.0" />
+    <PackageReference Include="Soenneker.Hashing.Argon2" Version="4.0.692" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Demo_WebAPI_EventAgenda.Domain\Demo_WebAPI_EventAgenda.Domain.csproj" />
+  </ItemGroup>
+
+</Project>

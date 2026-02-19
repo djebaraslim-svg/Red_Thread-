@@ -1,0 +1,15 @@
+<Solution>
+  <Folder Name="/ApplicationCore/">
+    <Project Path="Demo_WebAPI_EventAgenda.ApplicationCore/Demo_WebAPI_EventAgenda.ApplicationCore.csproj" />
+  </Folder>
+  <Folder Name="/Domain/">
+    <Project Path="Demo_WebAPI_EventAgenda.Domain/Demo_WebAPI_EventAgenda.Domain.csproj" />
+  </Folder>
+  <Folder Name="/Elements de solution/" />
+  <Folder Name="/Infrastructure/">
+    <Project Path="Demo_WebAPI_EventAgenda.Infrastructure.Database/Demo_WebAPI_EventAgenda.Infrastructure.Database.csproj" />
+  </Folder>
+  <Folder Name="/Presentation/">
+    <Project Path="Demo_WebAPI_EventAgenda.Presentation.WebApi/Demo_WebAPI_EventAgenda.Presentation.WebApi.csproj" Id="fa41c1d1-19d7-43a5-8c17-8d8467736100" />
+  </Folder>
+</Solution>
