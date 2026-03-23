@@ -49,7 +49,8 @@ namespace Demo_WebAPI_EventAgenda.Presentation.WebApi.Controllers
             string token = _tokenTool.Generate(new TokenTool.Data()
                 {
                     MemberId = member.Id,
-                    Role = dto.Email == "della@test.be" ? "Admin" : "Péon" // Juste pour la démo, on attribue le rôle d'admin à Della, et les autres sont des péons
+                    Role = member.Role.ToString()
+                // Role = dto.Email == "della@test.be" ? "Admin" : "Péon" // Juste pour la démo, on attribue le rôle d'admin à Della, et les autres sont des péons
             });
                 
             return Ok(new

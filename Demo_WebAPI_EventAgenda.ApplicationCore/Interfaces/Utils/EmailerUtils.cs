@@ -1,4 +1,5 @@
-﻿using MailKit.Net.Smtp;
+﻿using Demo_WebAPI_EventAgenda.Domain.Models;
+using MailKit.Net.Smtp;
 using MimeKit;
 using System;
 using System.Collections.Generic;
@@ -8,7 +9,7 @@ namespace Demo_WebAPI_EventAgenda.ApplicationCore.Interfaces.Utils
 {
     public class EmailerUtils : IEmailerUtils
     {
-        public void SendEmail()
+        public void SendEmail(Member member)
         {
             // Configs
             string smtpHost = "localhost";
@@ -67,6 +68,8 @@ namespace Demo_WebAPI_EventAgenda.ApplicationCore.Interfaces.Utils
             }
 
         }
+
+        
     }
 
 }

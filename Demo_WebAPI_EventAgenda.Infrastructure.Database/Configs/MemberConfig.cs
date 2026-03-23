@@ -1,4 +1,5 @@
-﻿using Demo_WebAPI_EventAgenda.Domain.Models;
+﻿using Demo_WebAPI_EventAgenda.Domain.Enums;
+using Demo_WebAPI_EventAgenda.Domain.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using System;
@@ -41,6 +42,9 @@ namespace Demo_WebAPI_EventAgenda.Infrastructure.Database.Configs
                     .IsRequired();
 
             builder.Property(m => m.Role)
+                    .HasConversion<string>()
+                    .HasDefaultValue(Role.Peon)
+                    .HasSentinel(0)
                     .HasColumnName("Role")
                     .HasMaxLength(50)
                     .IsRequired();

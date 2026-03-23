@@ -1,5 +1,6 @@
 ﻿using Demo_WebAPI_EventAgenda.ApplicationCore.Interfaces.Repositories;
 using Demo_WebAPI_EventAgenda.ApplicationCore.Interfaces.Services;
+using Demo_WebAPI_EventAgenda.ApplicationCore.Interfaces.Utils;
 using Demo_WebAPI_EventAgenda.Domain.Models;
 using Konscious.Security.Cryptography;
 using Soenneker.Hashing.Argon2;
@@ -13,10 +14,12 @@ namespace Demo_WebAPI_EventAgenda.ApplicationCore.Services
     public class MemberService : IMemberService
     {
         private readonly IMemberRepository _memberRepository;
+        private readonly IEmailerUtils _emailerUtils;
 
-        public MemberService(IMemberRepository memberRepository)
+        public MemberService(IMemberRepository memberRepository, IEmailerUtils emailerUtils)
         {
             _memberRepository = memberRepository;
+            _emailerUtils = emailerUtils;
         }
 
         public Member Login(string email, string password)
@@ -64,7 +67,13 @@ namespace Demo_WebAPI_EventAgenda.ApplicationCore.Services
             );
 
             // Créer le compte du membre dans la base de données via le repository
-            return _memberRepository.InsertMember(memberToInsert);
+            Member memberInserted = _memberRepository.InsertMember(memberToInsert);
+
+            // Envoyer un email de bienvenue au membre via l'utilitaire d'emailing
+            _emailerUtils.SendEmail(member);
+
+            // Envoi du compte créé en base de données pour confirmation à l'appelant
+            return memberInserted;
         }
     }
 }
